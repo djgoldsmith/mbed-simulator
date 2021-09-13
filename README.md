@@ -24,20 +24,24 @@ To make this feedback loop much shorter, we're releasing an alpha version of the
 
 ## Installation
 
-There are two ways of installing and running the simulator: either using Docker
-or installing a locally hosted version.
+There are two ways of installing and running the simulator: using either Docker
+or a native installation.
 
 ### Docker installation
 
 1. Install Docker
 1. Build the Docker image:  
-    `docker build -t mbed/simulator .`
+    `docker compose build`
 1. Run the Docker image:  
-    `docker run -p 8002:7829 mbed/simulator`
-1. The simulator can now be accessed at  
-    http://localhost:8002
+    1. normally:  
+        `docker compose up`
+    2. or with watcher:  
+        `docker compose run mbed-sim npm run watch`
+1. The simulator can now be accessed at:  
+    http://localhost:7829
 
-### Local installation
+
+### Native installation
 
 #### Prerequisites
 

@@ -15,39 +15,18 @@
 </head>
 <body>
   <section id="header">
-    Arm Mbed OS simulator
-
-    <span id="links">
-      <a target="_blank" href="https://github.com/ARMMbed/mbed-simulator#cli">Download offline version</a> |
-      <a target="_blank" href="https://github.com/ARMMbed/mbed-simulator">GitHub project</a>
-    </span>
+    <img class="header-logo" src="/img/headerLogo.png" alt="Mbed OS Simulator">
   </section>
 
   <section id="project">
     <section id="editor-container">
       <div id="editor-topbar">
         <select id="select-project">
-          <option disabled>-- Basic demos --</option>
-          <option selected name="blinky">Blinky</option>
-          <option name="interrupts">Interrupts</option>
-          <option name="events">Events</option>
-          <option name="pwmout">PwmOut</option>
-          <option name="busout">Blinky with BusOut</option>
-          <option name="trace">Tracing</option>
-          <option name="bd">Block Device</option>
-          <option disabled>-- Peripherals --</option>
-          <option name="lcd">LCD Display</option>
-          <option name="touchscreen">Touch screen</option>
-          <option name="temperature">Temperature / humidity</option>
-          <option disabled>-- Networking --</option>
-          <option name="tcpsocket">TCP Socket</option>
-          <option name="tlssocket">TLS Socket</option>
-          <option name="http">HTTP</option>
-          <option name="https">HTTPS</option>
-          <option name="coap">CoAP</option>
-          <option name="ntp">Time over UDP</option>
-          <option name="lorawan">LoRaWAN</option>
-          <option name="lorawan-abp">LoRaWAN (ABP)</option>
+          {{#each demos}}
+            <option name="{{this.id}}" {{#if this.selected}}selected="selected"{{/if}}>
+              {{this.name}}
+            </option>
+          {{/each}}
         </select>
         <button id="load-demo">Load demo</button>
 
