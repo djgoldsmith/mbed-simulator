@@ -2,6 +2,7 @@ version: "3"
 
 services:
   mbed-sim:
+    image: ghcr.io/djgoldsmith/mbed-simulator:release
     build:
       context: .
     ports:
