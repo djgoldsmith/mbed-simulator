@@ -1,4 +1,5 @@
-FROM node:12.14-slim
+#FROM node:12.14-slim
+FROM node:current-slim
 
 ENV PATH="/emsdk:/emsdk/emscripten/tag-1.38.21:${PATH}"
 ENV EMSDK="/emsdk"
@@ -7,8 +8,8 @@ ENV EMSCRIPTEN="/emsdk/emscripten/tag-1.38.21"
 ENV EMSCRIPTEN_NATIVE_OPTIMIZER="/emsdk/emscripten/tag-1.38.21_64bit_optimizer/optimizer"
 
 RUN apt-get update -qq && apt-get -qqy install \
-    cmake git curl unzip net-tools python-dev python-pip && \
-    pip install mbed-cli mercurial
+    cmake git curl unzip net-tools python3-dev python3-pip
+RUN pip install mbed-cli mercurial --break-system-packages
 
 ENV EMSDK_REVISION="50df5a2983d1b793f189c674ad588d8df5f9b2f4"
 RUN curl -LO https://github.com/emscripten-core/emsdk/archive/${EMSDK_REVISION}.zip && \
